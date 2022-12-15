@@ -1,0 +1,18 @@
+<div class="row mt-3 border rounded p-3">
+    <div class="col-4">
+        <img width="100%" src="{{graphicCard.image}}" alt="">
+    </div>
+    <div class="col" >
+        <a class="text-decoration-none" [routerLink]="[graphicCard._id]" role="button">{{graphicCard.title}} </a><span class="text-secondary"> {{graphicCard.subtitle}}</span>
+        <p>{{graphicCard.description.length> 130? (graphicCard.description | slice: 0:numOfChar) : graphicCard.description}}</p>
+        <a (click)="showMore()" role="button" class="text-primary" *ngIf="graphicCard.description.length> 130">{{showDesc}}</a>
+    </div>
+    <div class="row">
+        <div class="col-9"></div>
+        <div class="col">
+            <button (click)="onPlus()" class="btn btn-success">+</button>
+            <span class="p-3">{{graphicCard.grade}}</span>
+            <button (click)="onMinus()" class="btn btn-danger">-</button>
+        </div>
+    </div>
+</div>

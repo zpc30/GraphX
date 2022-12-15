@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <ngb-pagination [(page)]="params.page" [pageSize]="params.pageSize" [collectionSize]="graphics.count"
+            (pageChange)="pageUpdate($event)">
+            <ng-template ngbPaginationPrevious>Prev</ng-template>
+            <ng-template ngbPaginationNext>Next</ng-template>
+            <ng-template ngbPaginationPages disabled></ng-template>
+            </ngb-pagination>
+        </div>
+        <div class="col">
+            <div class="btn-group">
+                <button (click)="perPage($event)" type="button" *ngFor="let num of btnGroup"
+                class="btn btn-primary">{{num}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <app-graphic-item (vote)="cardVote($event)" *ngFor="let item of graphics.results" [graphicCard]="item"></app-graphic-item>
+        </div>
+        <div class="col">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

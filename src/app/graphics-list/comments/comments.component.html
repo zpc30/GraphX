@@ -1,0 +1,21 @@
+<form [formGroup]="form">
+    <input formControlName="author" class="form-control" type="text" placeholder="Name">
+    <textarea formControlName="text" class="form-control" type="text" placeholder="Comment"></textarea>
+    <button (click)="onSubmit()" class="btn btn-primary mt-3">Sumbit</button>
+</form>
+<div *ngFor="let item of comments.results">
+    <div class="row">
+        <div class="col">
+            <b>{{item.author}} </b>
+        </div>
+        <div class="col">
+            <span> {{item.date | date: 'd.M.yyyy'}} - {{item.date | date: 'HH:mm'}}</span>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-9">
+            <p>{{item.text}}</p>
+            <hr>
+        </div>
+    </div>
+</div>
